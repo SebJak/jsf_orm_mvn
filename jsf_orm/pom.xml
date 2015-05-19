@@ -14,10 +14,10 @@
 	  <url>https://maven.java.net/content/repositories/releases/</url>
 	</repository>
 	<repository>
-    <id>jboss-public-repository-group</id>
-    <name>JBoss Public Repository Group</name>
-    <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-    <layout>default</layout>
+        <id>jboss-public-repository-group</id>
+        <name>JBoss Public Repository Group</name>
+        <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+        <layout>default</layout>
     <releases>
         <enabled>true</enabled>
         <updatePolicy>never</updatePolicy>
@@ -26,7 +26,12 @@
         <enabled>true</enabled>
         <updatePolicy>never</updatePolicy>
     </snapshots>
-</repository>
+    </repository>
+      <repository>
+          <id>prime-repo</id>
+          <name>Prime Repo</name>
+          <url>http://repository.primefaces.org</url>
+      </repository>
   </repositories>
   
   <pluginRepositories>
@@ -44,14 +49,52 @@
     </pluginRepositories>
   
   <dependencies>
-  
-	<dependency>
-		<groupId>javax.faces</groupId>
-		<artifactId>jsf-api</artifactId>
-		<version>2.1</version>
-		<scope>provided</scope>
-	</dependency>
+
+     <!--PrimeFaces-->
+      <dependency>
+          <groupId>org.primefaces</groupId>
+          <artifactId>primefaces</artifactId>
+          <version>3.5</version>
+      </dependency>
+
+      <!-- JSF 2 -->
+          <dependency>
+              <groupId>com.sun.faces</groupId>
+              <artifactId>jsf-api</artifactId>
+              <version>2.1.29</version>
+          </dependency>
+
+      <dependency>
+          <groupId>com.sun.faces</groupId>
+          <artifactId>jsf-impl</artifactId>
+          <version>2.1.29</version>
+      </dependency>
+
+      <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+  </dependency>
+
     <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>2.5</version>
+    </dependency>
+
+    <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>jsp-api</artifactId>
+        <version>2.1</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.sun.el</groupId>
+        <artifactId>el-ri</artifactId>
+        <version>1.0</version>
+    </dependency>
+
+      <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
@@ -60,20 +103,31 @@
 	
   </dependencies>
  <build>
-        <plugins>
-            <plugin>
-                <groupId>org.jboss.as.plugins</groupId>
-                <artifactId>jboss-as-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.jboss.as.plugins</groupId>-->
+                <!--<artifactId>jboss-as-maven-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>deploy</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+     <plugins>
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-compiler-plugin</artifactId>
+             <version>2.3.1</version>
+             <configuration>
+                 <source>1.6</source>
+                 <target>1.6</target>
+             </configuration>
+         </plugin>
+     </plugins>
 
         <finalName>jsf_orm</finalName>
     </build>
