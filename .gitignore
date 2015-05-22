@@ -15,3 +15,6 @@
 hs_err_pid*
 
 jsf_orm.iml
+
+dataBase.properties
+testDataBase.properties
