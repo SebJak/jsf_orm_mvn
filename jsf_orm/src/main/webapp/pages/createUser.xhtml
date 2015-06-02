@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<body>
+    <f:view>
+        <h:outputLabel value="Create new user"/>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="enterLogin" value="Login"/>
+                <h:inputText id="enterLogin" value="#{createUser.newUser.login}">
+                        <f:validateLength minimum="5" maximum="15"/>
+                        <!--<f:validateBean-->
+
+                </h:inputText>
+                <h:message for="enterLogin" style="color: red;"></h:message>
+                <h:outputLabel for="enterFirstName" value="First name"/>
+                <h:inputText id="enterFirstName" value="#{createUser.newUser.name}" />
+                <h:outputLabel for="enterLastName" value="Last name"/>
+                <h:inputText id="enterLastName" value="#{createUser.newUser.lastName}" />
+                <h:outputLabel for="enterPassword">Password</h:outputLabel>
+                <h:inputSecret id="enterPassword" value="#{createUser.password.password}"/>
+                <h:outputLabel for="enterConfPassword">Confirm Password</h:outputLabel>
+                <h:inputSecret id="enterConfPassword" value="#{createUser.password.confPassword}"/>
+                <h:outputLabel for="enterPhone" value="Phone number"/>
+                <h:inputText id="enterPhone" value="#{createUser.newUser.phoneNumber}" />
+                <h:outputLabel for="enterEmail" value="Emial"/>
+                <h:inputText id="enterEmail" value="#{createUser.newUser.email}" />
+
+                <h:outputLabel for="enterCountry" value="Country"/>
+                <h:inputText id="enterCountry" value="#{createUser.newUser.address.country}" />
+                <h:outputLabel for="enterStreet" value="Street"/>
+                <h:inputText id="enterStreet" value="#{createUser.newUser.address.street}" />
+                <h:outputLabel for="enterPostalCode" value="PostalCode"/>
+                <h:inputText id="enterPostalCode" value="#{createUser.newUser.address.postCode}" />
+                <h:outputLabel for="enterCity" value="City"/>
+                <h:inputText id="enterCity" value="#{createUser.newUser.address.city}" />
+            </h:panelGrid>
+            <h:commandButton value="Create User" action="#{createUser.createUser}"/>
+        </h:form>
+    </f:view>
+</body>
+</html>

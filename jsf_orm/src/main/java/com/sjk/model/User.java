@@ -28,10 +28,12 @@ public class User extends BaseEntity implements Serializable{
 	
 	private String phoneNumber;
 	
-	private String accoundNumber;
+	private String accountNumber;
 	
 	private Address address;
-	
+
+	private String email;
+
 	@ManyToOne(targetEntity=Organization.class)
 	private Organization organization;
 	
@@ -70,14 +72,12 @@ public class User extends BaseEntity implements Serializable{
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getAccoundNumber() {
-		return accoundNumber;
+	public String getAccountNumber() {
+		return accountNumber;
 	}
-
-	public void setAccoundNumber(String accoundNumber) {
-		this.accoundNumber = accoundNumber;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -113,19 +113,26 @@ public class User extends BaseEntity implements Serializable{
 	public void setOrganization(Organization organization) {
 		this.organization = organization;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	@Override
 	public String toString() {
 		return "User [login=" + login + ", password=" + password + ", name="
 				+ name + ", lastName=" + lastName + ", phoneNumber="
-				+ phoneNumber + ", accoundNumber=" + accoundNumber
+				+ phoneNumber + ", accountNumber=" + accountNumber
 				+ ", address=" + address + ", organization=" + organization
 				+ ", role=" + role + "]";
 	}
 
 	public User(String login, String password, String name, String lastName,
-			String phoneNumber, String accoundNumber, Address address,
+			String phoneNumber, String accountNumber, Address address,
 			Organization organization, Role role) {
 		super();
 		this.login = login;
@@ -133,7 +140,7 @@ public class User extends BaseEntity implements Serializable{
 		this.name = name;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
-		this.accoundNumber = accoundNumber;
+		this.accountNumber = accountNumber;
 		this.address = address;
 		this.organization = organization;
 		this.role = role;

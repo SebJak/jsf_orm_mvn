@@ -10,9 +10,13 @@
 <h:body>
     <f:view>
         <h:form id="mainForm">
-            <h:outputLabel for="enterName" value="Login Page"/>
-            <h:inputText id="enterName" value="#{welcomeBean.sayHello}"/>
-            <h:commandButton value="Say Hello" action="#{welcomeBean.testAction}"/>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="enterName" value="User name"/>
+                <h:inputText id="enterName" value="#{loginCreadentials.username}" />
+                <h:outputLabel for="enterPassword">Password</h:outputLabel>
+                <h:inputSecret id="enterPassword" value="#{loginCreadentials.password}"/>
+            </h:panelGrid>
+            <h:commandButton value="Login" action="#{loginCreadentials.login}"/>
         </h:form>
     </f:view>
 </h:body>

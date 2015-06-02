@@ -152,8 +152,32 @@
         </dependency>
 
     </dependencies>
+    <profiles>
+        <profile>
+            <id>development</id>
+            <properties>
+                <test.properties>development</test.properties>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <test.properties>test</test.properties>
+            </properties>
+        </profile>
+
+    </profiles>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <!-- specify UTF-8, ISO-8859-1 or any other file encoding -->
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -164,7 +188,12 @@
                 </configuration>
             </plugin>
         </plugins>
-
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <finalName>jsf_orm</finalName>
     </build>
 </project>
