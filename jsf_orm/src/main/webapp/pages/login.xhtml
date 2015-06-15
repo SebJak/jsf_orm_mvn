@@ -3,21 +3,33 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Jsf title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--<link href="../styles/common.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/layout.css" rel="stylesheet" type="text/css" />-->
+    <h:outputStylesheet library="css" name="layout.css"/>
+    <title>Shop maintanance</title>
 </h:head>
 <h:body>
+
+    <div class="loginForm">
     <f:view>
-        <h:form id="mainForm">
+        <h:form id="loginForm">
             <h:panelGrid columns="2">
-                <h:outputLabel for="enterName" value="User name"/>
-                <h:inputText id="enterName" value="#{loginCreadentials.username}" />
-                <h:outputLabel for="enterPassword">Password</h:outputLabel>
-                <h:inputSecret id="enterPassword" value="#{loginCreadentials.password}"/>
+                <p:outputLabel for="username" value="#{msg['shop.login.form.username']}" />
+                <p:inputText id="username" value="#{loginCreadentials.username}" required="true" label="username" />
+
+                <p:outputLabel for="password" value="Password:" />
+                <p:password id="password" value="#{loginCreadentials.password}" required="true" label="password" />
+
+                <f:facet name="footer">
+                    <p:commandButton value="Login" action="#{loginCreadentials.login}"/>
+                </f:facet>
             </h:panelGrid>
-            <h:commandButton value="Login" action="#{loginCreadentials.login}"/>
         </h:form>
     </f:view>
+    </div>
 </h:body>
 </html>
