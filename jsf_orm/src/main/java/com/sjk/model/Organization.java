@@ -14,9 +14,6 @@ import javax.persistence.Table;
 @Table(name="ORGANIZATION")
 public class Organization extends BaseEntity implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6081361582451136304L;
 	
 	@OneToMany(targetEntity=User.class, mappedBy="organization")
@@ -70,13 +67,10 @@ public class Organization extends BaseEntity implements Serializable {
 		this.address = address;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	public Organization() {
 		super();
-		// TODO Auto-generated constructor stub
+		address = new Address();
+
 	}
 
 	public Organization(List<User> users, String name, String email,

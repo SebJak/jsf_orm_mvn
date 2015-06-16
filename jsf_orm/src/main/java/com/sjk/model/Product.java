@@ -2,13 +2,17 @@ package com.sjk.model;
 
 import com.sjk.model.embedded.BaseEntity;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Sebastian on 2015-06-16.
  */
+@Entity
+@Table(name="PRODUCT")
 public class Product extends BaseEntity implements Serializable {
 
     private String code;

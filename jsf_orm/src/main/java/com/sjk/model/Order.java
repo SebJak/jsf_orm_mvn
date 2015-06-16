@@ -2,13 +2,17 @@ package com.sjk.model;
 
 import com.sjk.model.embedded.BaseEntity;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Sebastian on 2015-06-16.
  */
+@Entity
+@Table(name="ORDER")
 public class Order extends BaseEntity implements Serializable {
 
     @ManyToOne(targetEntity=Product.class)
@@ -17,6 +21,17 @@ public class Order extends BaseEntity implements Serializable {
     private double amount;
 
     private String orderUnit;
+
+    @ManyToOne(targetEntity=Order.class)
+    private OrderCard orderCard;
+
+    public OrderCard getOrderCard() {
+        return orderCard;
+    }
+
+    public void setOrderCard(OrderCard orderCard) {
+        this.orderCard = orderCard;
+    }
 
     public Product getProduct() {
         return product;

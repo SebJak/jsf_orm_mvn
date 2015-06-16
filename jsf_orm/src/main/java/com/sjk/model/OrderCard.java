@@ -2,8 +2,10 @@ package com.sjk.model;
 
 import com.sjk.model.embedded.BaseEntity;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -11,9 +13,11 @@ import java.util.List;
 /**
  * Created by Sebastian on 2015-06-16.
  */
+@Entity
+@Table(name="ORDER_CARD")
 public class OrderCard extends BaseEntity implements Serializable{
 
-    @OneToMany(targetEntity=Order.class, mappedBy="order")
+    @OneToMany(targetEntity=Order.class, mappedBy="orderCard")
     private List<Order> orders;
 
     private Date orderTime;

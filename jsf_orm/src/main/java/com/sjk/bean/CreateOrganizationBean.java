@@ -1,6 +1,8 @@
 package com.sjk.bean;
 
 import com.sjk.model.Organization;
+import com.sjk.utils.HibernateUtils;
+import org.hibernate.Session;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -14,6 +16,9 @@ public class CreateOrganizationBean {
 
     private Organization org;
 
+    public  CreateOrganizationBean(){
+        org = new Organization();
+    }
     public Organization getOrg() {
         return org;
     }
@@ -25,5 +30,8 @@ public class CreateOrganizationBean {
     public void create(){
         //TODO create organization
         System.out.printf("Create Organization");
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        session.save(org);
+        session.close();
     }
 }

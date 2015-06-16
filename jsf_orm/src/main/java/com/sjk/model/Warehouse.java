@@ -2,18 +2,23 @@ package com.sjk.model;
 
 import com.sjk.model.embedded.BaseEntity;
 
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
  * Created by Sebastian on 2015-06-16.
  */
+@Entity
+@Table(name="WAREHOUSE")
 public class Warehouse extends BaseEntity implements Serializable {
 
-    @OneToMany(targetEntity = Organization.class)
+    @OneToOne(targetEntity = Organization.class)
     private Organization organization;
 
-    @OneToMany(targetEntity = Product.class)
+    @OneToOne(targetEntity = Product.class)
     private Product products;
 
     private long amount;
