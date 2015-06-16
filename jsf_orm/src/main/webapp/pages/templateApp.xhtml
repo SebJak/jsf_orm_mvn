@@ -36,23 +36,23 @@
                 <p:menu type="tiered">
                     <p:menuitem>
                         <p:commandLink title="PL" action="#{languageBean.countryLocaleCodeChange('pl')}" update="@all">
-                            <p:graphicImage styleClass="langFlag" value="./resources/images/pl.png" />
+                            <p:graphicImage styleClass="langFlag" value="/resources/images/pl.png" />
                         </p:commandLink>
                         <p:commandLink title="EN" action="#{languageBean.countryLocaleCodeChange('en')}" update="@all">
-                            <p:graphicImage styleClass="langFlag" value="./resources/images/en.png" />
+                            <p:graphicImage styleClass="langFlag" value="/resources/images/en.png" />
                         </p:commandLink>
                         <p:commandLink title="DE" action="#{languageBean.countryLocaleCodeChange('de')}" update="@all">
-                            <p:graphicImage styleClass="langFlag" value="./resources/images/de.png" />
+                            <p:graphicImage styleClass="langFlag" value="/resources/images/de.png" />
                         </p:commandLink>
                     </p:menuitem>
                     <p:menuitem>
-                        <h:outputLink value="index.xhtml">Home</h:outputLink>
+                        <h:outputLink value="main.xhtml">Home</h:outputLink>
                     </p:menuitem>
                     <p:menuitem>
-                        <h:outputLink value="">Show Categories</h:outputLink>
+                        <h:commandLink action="#{mainBean.createUser}" value="#{msg['shop.main.create.user']}"/>
                     </p:menuitem>
                     <p:menuitem>
-                        <h:outputLink value="">Add Category</h:outputLink>
+                        <h:commandLink action="#{mainBean.createOrg}" value="#{msg['shop.main.create.organization']}"/>
                     </p:menuitem>
                     <p:menuitem>
                         <h:outputLink value="">Show Products</h:outputLink>

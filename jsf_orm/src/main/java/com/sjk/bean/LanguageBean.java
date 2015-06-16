@@ -1,5 +1,6 @@
 package com.sjk.bean;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -52,6 +53,13 @@ public class LanguageBean implements Serializable{
                         .getViewRoot().setLocale((Locale)entry.getValue());
             }
         }
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.printf("-------------------INIT--------------------");
+        Locale locale = FacesContext.getCurrentInstance().getExternalContext().getRequestLocale();
+        System.out.printf(locale.getCountry());
     }
 
 }

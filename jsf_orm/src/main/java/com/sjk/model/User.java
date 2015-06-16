@@ -75,9 +75,11 @@ public class User extends BaseEntity implements Serializable{
 	public String getAccountNumber() {
 		return accountNumber;
 	}
+
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

@@ -1,7 +1,6 @@
 package com.sjk.utils;
 
-import com.sjk.model.Organization;
-import com.sjk.model.User;
+import com.sjk.model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -74,7 +73,10 @@ public class HibernateUtils {
 //-------------------------Mapping Class---------------------------------
             configuration.addAnnotatedClass(User.class);
             configuration.addAnnotatedClass(Organization.class);
-//            configuration.addAnnotatedClass(Product.class);
+            configuration.addAnnotatedClass(Product.class);
+            configuration.addAnnotatedClass(Order.class);
+            configuration.addAnnotatedClass(OrderCard.class);
+            configuration.addAnnotatedClass(Warehouse.class);
 //----------------------------------------------------------------------
             return configuration;
 

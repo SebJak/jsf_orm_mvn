@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templateApp.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <f:view>
+            <h1>#{msg['shop.create.org.form.title']}</h1>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="enterFirstName" value="Name"/>
+                    <p:inputText id="enterFirstName" value="#{createOrganizationBean.org.name}" />
+                    <p:outputLabel for="enterPhone" value="Phone number"/>
+                    <p:inputText id="enterPhone" value="#{createOrganizationBean.org.phoneNumber}" />
+                    <p:outputLabel for="enterEmail" value="Emial"/>
+                    <p:inputText id="enterEmail" value="#{createOrganizationBean.org.email}" />
+
+                    <p:outputLabel for="enterCountry" value="Country"/>
+                    <p:inputText id="enterCountry" value="#{createOrganizationBean.org.address.country}" />
+                    <p:outputLabel for="enterStreet" value="Street"/>
+                    <p:inputText id="enterStreet" value="#{createOrganizationBean.org.address.street}" />
+                    <p:outputLabel for="enterPostalCode" value="PostalCode"/>
+                    <p:inputText id="enterPostalCode" value="#{createOrganizationBean.org.address.postCode}" />
+                    <p:outputLabel for="enterCity" value="City"/>
+                    <p:inputText id="enterCity" value="#{createOrganizationBean.org.address.city}" />
+                </h:panelGrid>
+                <p:commandButton value="Create User" action="#{createOrganizationBean.create}"/>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>
