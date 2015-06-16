@@ -11,33 +11,33 @@
         <h1>#{msg['shop.create.user.form.title']}</h1>
         <h:form>
             <h:panelGrid columns="2">
-                <p:outputLabel for="enterLogin" value="Login"/>
+                <p:outputLabel for="enterLogin" value="#{msg['shop.create.user.form.login']}"/>
                 <p:inputText id="enterLogin" value="#{createUser.newUser.login}">
                         <f:validateLength minimum="5" maximum="15"/>
                 </p:inputText>
-                <p:outputLabel for="enterFirstName" value="First name"/>
+                <p:outputLabel for="enterFirstName" value="#{msg['shop.create.user.form.firstName']}"/>
                 <p:inputText id="enterFirstName" value="#{createUser.newUser.name}" />
-                <p:outputLabel for="enterLastName" value="Last name"/>
+                <p:outputLabel for="enterLastName" value="#{msg['shop.create.user.form.lastName']}"/>
                 <p:inputText id="enterLastName" value="#{createUser.newUser.lastName}" />
-                <p:outputLabel for="enterPassword">Password</p:outputLabel>
+                <p:outputLabel for="enterPassword">#{msg['shop.create.user.form.password']}</p:outputLabel>
                 <p:password id="enterPassword" value="#{createUser.password.password}"/>
-                <p:outputLabel for="enterConfPassword">Confirm Password</p:outputLabel>
+                <p:outputLabel for="enterConfPassword">#{msg['shop.create.user.form.confPassword']}</p:outputLabel>
                 <p:password id="enterConfPassword" value="#{createUser.password.confPassword}"/>
-                <p:outputLabel for="enterPhone" value="Phone number"/>
+                <p:outputLabel for="enterPhone" value="#{msg['shop.create.user.form.phone']}"/>
                 <p:inputText id="enterPhone" value="#{createUser.newUser.phoneNumber}" />
-                <p:outputLabel for="enterEmail" value="Emial"/>
+                <p:outputLabel for="enterEmail" value="#{msg['shop.create.user.form.email']}"/>
                 <p:inputText id="enterEmail" value="#{createUser.newUser.email}" />
 
-                <p:outputLabel for="enterCountry" value="Country"/>
+                <p:outputLabel for="enterCountry" value="#{msg['shop.create.user.form.country']}"/>
                 <p:inputText id="enterCountry" value="#{createUser.newUser.address.country}" />
-                <p:outputLabel for="enterStreet" value="Street"/>
+                <p:outputLabel for="enterStreet" value="#{msg['shop.create.user.form.street']}"/>
                 <p:inputText id="enterStreet" value="#{createUser.newUser.address.street}" />
-                <p:outputLabel for="enterPostalCode" value="PostalCode"/>
+                <p:outputLabel for="enterPostalCode" value="#{msg['shop.create.user.form.postCode']}"/>
                 <p:inputText id="enterPostalCode" value="#{createUser.newUser.address.postCode}" />
-                <p:outputLabel for="enterCity" value="City"/>
+                <p:outputLabel for="enterCity" value="#{msg['shop.create.user.form.city']}"/>
                 <p:inputText id="enterCity" value="#{createUser.newUser.address.city}" />
             </h:panelGrid>
-            <p:commandButton value="Create User" action="#{createUser.createUser}"/>
+            <p:commandButton value="#{msg['shop.create.user.form.create']}" action="#{createUser.createUser}"/>
         </h:form>
     </f:view>
     </ui:define>

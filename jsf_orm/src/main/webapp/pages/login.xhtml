@@ -7,8 +7,6 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--<link href="../styles/common.css" rel="stylesheet" type="text/css" />
-    <link href="../styles/layout.css" rel="stylesheet" type="text/css" />-->
     <h:outputStylesheet library="css" name="layout.css"/>
     <title>Shop maintanance</title>
 </h:head>
@@ -25,7 +23,7 @@
                 <p:password id="password" value="#{loginCreadentials.password}" required="true" label="password" />
 
                 <f:facet name="footer">
-                    <p:commandButton value="Login" action="#{loginCreadentials.login}"/>
+                    <p:commandButton value=#{msg['shop.login.form.login']}" action="#{loginCreadentials.login}"/>
                 </f:facet>
             </h:panelGrid>
         </h:form>

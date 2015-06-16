@@ -11,23 +11,23 @@
             <h1>#{msg['shop.create.org.form.title']}</h1>
             <h:form>
                 <h:panelGrid columns="2">
-                    <p:outputLabel for="name" value="Name"/>
+                    <p:outputLabel for="name" value="#{msg['shop.create.org.form.name']}"/>
                     <p:inputText id="name" value="#{createOrganizationBean.org.name}" />
-                    <p:outputLabel for="enterPhone" value="Phone number"/>
+                    <p:outputLabel for="enterPhone" value="#{msg['shop.create.org.form.phone']}"/>
                     <p:inputText id="enterPhone" value="#{createOrganizationBean.org.phone}" />
-                    <p:outputLabel for="enterEmail" value="Emial"/>
+                    <p:outputLabel for="enterEmail" value="#{msg['shop.create.org.form.email']}"/>
                     <p:inputText id="enterEmail" value="#{createOrganizationBean.org.email}" />
 
-                    <p:outputLabel for="enterCountry" value="Country"/>
+                    <p:outputLabel for="enterCountry" value="#{msg['shop.create.org.form.country']}"/>
                     <p:inputText id="enterCountry" value="#{createOrganizationBean.org.address.country}" />
-                    <p:outputLabel for="enterStreet" value="Street"/>
+                    <p:outputLabel for="enterStreet" value="#{msg['shop.create.org.form.street']}"/>
                     <p:inputText id="enterStreet" value="#{createOrganizationBean.org.address.street}" />
-                    <p:outputLabel for="enterPostalCode" value="PostalCode"/>
+                    <p:outputLabel for="enterPostalCode" value="#{msg['shop.create.org.form.postcode']}"/>
                     <p:inputText id="enterPostalCode" value="#{createOrganizationBean.org.address.postCode}" />
-                    <p:outputLabel for="enterCity" value="City"/>
+                    <p:outputLabel for="enterCity" value="#{msg['shop.create.org.form.city']}"/>
                     <p:inputText id="enterCity" value="#{createOrganizationBean.org.address.city}" />
                 </h:panelGrid>
-                <p:commandButton value="Create User" action="#{createOrganizationBean.create}"/>
+                <p:commandButton value="#{msg['shop.create.org.form.create']}" action="#{createOrganizationBean.create}"/>
             </h:form>
         </f:view>
     </ui:define>
