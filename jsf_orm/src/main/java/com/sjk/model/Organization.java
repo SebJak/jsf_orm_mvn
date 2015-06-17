@@ -2,13 +2,12 @@ package com.sjk.model;
 
 import com.sjk.model.embedded.Address;
 import com.sjk.model.embedded.BaseEntity;
+import com.sjk.model.embedded.OrganizationContext;
 
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="ORGANIZATION")
@@ -27,12 +26,23 @@ public class Organization extends BaseEntity implements Serializable {
 	
 	private Address address;
 
+	@Enumerated(value = EnumType.STRING)
+	private OrganizationContext context;
+
 	public List<User> getUsers() {
 		return users;
 	}
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	public OrganizationContext getContext() {
+		return context;
+	}
+
+	public void setContext(OrganizationContext context) {
+		this.context = context;
 	}
 
 	public String getName() {

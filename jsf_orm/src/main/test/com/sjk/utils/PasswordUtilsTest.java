@@ -87,8 +87,8 @@ public class PasswordUtilsTest extends TestCase {
 
     public void testValidatePassword() throws Exception {
         PasswordUtils passwordUtils = new PasswordUtils();
-        passwordUtils.setPassword("pass01Wo!");
-        passwordUtils.setConfPassword("pass01Wo!");
+        passwordUtils.setPassword("Welcome1!");
+        passwordUtils.setConfPassword("Welcome1!");
         assertEquals(true, passwordUtils.validatePassword());
     }
 

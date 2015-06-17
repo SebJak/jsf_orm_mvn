@@ -10,9 +10,15 @@
         <f:view>
             <h1>#{msg['shop.create.org.form.title']}</h1>
             <h:form>
+                <p:growl id="growl" showDetail="true" sticky="true" />
                 <h:panelGrid columns="2">
                     <p:outputLabel for="name" value="#{msg['shop.create.org.form.name']}"/>
                     <p:inputText id="name" value="#{createOrganizationBean.org.name}" />
+                    <p:outputLabel for="context" value="#{msg['shop.create.org.form.context']}" />
+                    <p:selectOneMenu id="context" value="#{createOrganizationBean.org.context}" style="width:202px">
+                        <f:selectItems value="#{createOrganizationBean.contexts}" />
+                    </p:selectOneMenu>
+
                     <p:outputLabel for="enterPhone" value="#{msg['shop.create.org.form.phone']}"/>
                     <p:inputText id="enterPhone" value="#{createOrganizationBean.org.phone}" />
                     <p:outputLabel for="enterEmail" value="#{msg['shop.create.org.form.email']}"/>
@@ -27,7 +33,7 @@
                     <p:outputLabel for="enterCity" value="#{msg['shop.create.org.form.city']}"/>
                     <p:inputText id="enterCity" value="#{createOrganizationBean.org.address.city}" />
                 </h:panelGrid>
-                <p:commandButton value="#{msg['shop.create.org.form.create']}" action="#{createOrganizationBean.create}"/>
+                <p:commandButton value="#{msg['shop.create.org.form.create']}" action="#{createOrganizationBean.create}" update="growl"/>
             </h:form>
         </f:view>
     </ui:define>

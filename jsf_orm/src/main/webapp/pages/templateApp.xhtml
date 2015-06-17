@@ -55,13 +55,13 @@
                         <h:commandLink action="#{mainBean.createOrg}" value="#{msg['shop.main.create.organization']}"/>
                     </p:menuitem>
                     <p:menuitem>
-                        <h:outputLink value="">Show Products</h:outputLink>
+                        <h:commandLink action="#{mainBean.createOrder}" value="#{msg['shop.main.create.order']}"/>
                     </p:menuitem>
                     <p:menuitem>
-                        <h:outputLink value="">Add Products</h:outputLink>
+                        <h:commandLink action="#{mainBean.createOrderCard}" value="#{msg['shop.main.create.orderCard']}"/>
                     </p:menuitem>
                     <p:menuitem>
-                        <h:outputLink value="">Panel for Adminin</h:outputLink>
+                        <h:commandLink action="#{mainBean.createProduct}" value="#{msg['shop.main.create.product']}"/>
                     </p:menuitem>
                 </p:menu>
             </h:form>

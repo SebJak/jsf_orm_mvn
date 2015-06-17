@@ -15,6 +15,7 @@
     <div class="loginForm">
     <f:view>
         <h:form id="loginForm">
+            <p:growl id="error" showDetail="error" sticky="true" />
             <h:panelGrid columns="2">
                 <p:outputLabel for="username" value="#{msg['shop.login.form.username']}" />
                 <p:inputText id="username" value="#{loginCreadentials.username}" required="true" label="username" />
@@ -23,7 +24,7 @@
                 <p:password id="password" value="#{loginCreadentials.password}" required="true" label="password" />
 
                 <f:facet name="footer">
-                    <p:commandButton value=#{msg['shop.login.form.login']}" action="#{loginCreadentials.login}"/>
+                    <p:commandButton value="#{msg['shop.login.form.login']}" action="#{loginCreadentials.login}" update="error"/>
                 </f:facet>
             </h:panelGrid>
         </h:form>

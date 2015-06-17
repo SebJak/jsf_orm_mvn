@@ -12,9 +12,7 @@
         <h:form>
             <h:panelGrid columns="2">
                 <p:outputLabel for="enterLogin" value="#{msg['shop.create.user.form.login']}"/>
-                <p:inputText id="enterLogin" value="#{createUser.newUser.login}">
-                        <f:validateLength minimum="5" maximum="15"/>
-                </p:inputText>
+                <p:inputText id="enterLogin" value="#{createUser.newUser.login}"/>
                 <p:outputLabel for="enterFirstName" value="#{msg['shop.create.user.form.firstName']}"/>
                 <p:inputText id="enterFirstName" value="#{createUser.newUser.name}" />
                 <p:outputLabel for="enterLastName" value="#{msg['shop.create.user.form.lastName']}"/>
@@ -37,7 +35,7 @@
                 <p:outputLabel for="enterCity" value="#{msg['shop.create.user.form.city']}"/>
                 <p:inputText id="enterCity" value="#{createUser.newUser.address.city}" />
             </h:panelGrid>
-            <p:commandButton value="#{msg['shop.create.user.form.create']}" action="#{createUser.createUser}"/>
+            <p:commandButton value="#{msg['shop.create.user.form.create']}" action="#{createUser.create}"/>
         </h:form>
     </f:view>
     </ui:define>

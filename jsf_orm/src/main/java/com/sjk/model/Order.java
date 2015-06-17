@@ -22,7 +22,7 @@ public class Order extends BaseEntity implements Serializable {
 
     private String orderUnit;
 
-    @ManyToOne(targetEntity=Order.class)
+    @ManyToOne(targetEntity=OrderCard.class)
     private OrderCard orderCard;
 
     public OrderCard getOrderCard() {

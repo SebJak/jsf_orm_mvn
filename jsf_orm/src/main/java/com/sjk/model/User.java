@@ -8,9 +8,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="USER")
-//@NamedQueries({
-//		@NamedQuery(name = "User.findByLogin", query = "SELECT c FROM USER c WHERE c.login = :login")
-//})
+@NamedQueries({
+		@NamedQuery(
+				name = "User.findByLogin",
+				query = "from User u WHERE u.login = :login"
+		)
+})
 public class User extends BaseEntity implements Serializable{
 
 	/**
@@ -150,6 +153,8 @@ public class User extends BaseEntity implements Serializable{
 
 	public User() {
 		super();
+		address = new Address();
+		organization = new Organization();
 	}
 
 	@Override

@@ -18,4 +18,10 @@ public class MainBean {
     public String createOrg(){
         return "createOrg";
     }
+
+    public String createProduct() { return  "createProduct"; }
+
+    public String createOrder() { return "createOrder"; }
+
+    public String createOrderCard(){ return "createOrderCard"; }
 }
