@@ -63,6 +63,7 @@ public class HibernateUtils {
             configuration.setProperty("hibernate.connection.autocommit", "true");
             configuration.setProperty("hibernate.dialect",
                     "org.hibernate.dialect.MySQLDialect");
+            configuration.setProperty("generateDdl","true");
             configuration.setProperty("hibernate.hbm2ddl.auto", "update");
 			configuration.setProperty("show_sql",
 					properties.getProperty("show_sql"));
@@ -74,7 +75,7 @@ public class HibernateUtils {
             configuration.addAnnotatedClass(User.class);
             configuration.addAnnotatedClass(Organization.class);
             configuration.addAnnotatedClass(Product.class);
-            configuration.addAnnotatedClass(Order.class);
+            configuration.addAnnotatedClass(OrderItem.class);
             configuration.addAnnotatedClass(OrderCard.class);
             configuration.addAnnotatedClass(Warehouse.class);
 //----------------------------------------------------------------------
