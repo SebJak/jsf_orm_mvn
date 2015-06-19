@@ -1,6 +1,6 @@
 package com.sjk.bean;
 
-import com.sjk.model.Order;
+import com.sjk.model.OrderItem;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -12,14 +12,14 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class OrderBean {
 
-    private Order order;
+    private OrderItem orderItem;
 
-    public Order getOrder() {
-        return order;
+    public OrderItem getOrderItem() {
+        return orderItem;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderItem(OrderItem orderItem) {
+        this.orderItem = orderItem;
     }
 
     public void create(){

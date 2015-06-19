@@ -2,10 +2,7 @@ package com.sjk.model;
 
 import com.sjk.model.embedded.BaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -17,8 +14,8 @@ import java.util.List;
 @Table(name="ORDER_CARD")
 public class OrderCard extends BaseEntity implements Serializable{
 
-    @OneToMany(targetEntity=Order.class, mappedBy="orderCard")
-    private List<Order> orders;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderCard")
+    private List<OrderItem> orderItems;
 
     private Date orderTime;
 
@@ -31,12 +28,12 @@ public class OrderCard extends BaseEntity implements Serializable{
     @ManyToOne(targetEntity=Organization.class)
     private User user;
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 
     public Date getOrderTime() {
@@ -93,7 +90,7 @@ public class OrderCard extends BaseEntity implements Serializable{
     @Override
     public String toString() {
         return "OrderCard{" +
-                "orders=" + orders +
+                "orderItems=" + orderItems +
                 ", orderTime=" + orderTime +
                 ", supplier=" + supplier +
                 ", customer=" + customer +

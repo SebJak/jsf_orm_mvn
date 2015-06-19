@@ -8,20 +8,20 @@
                 xmlns:p="http://primefaces.org/ui">
     <ui:define name="content">
         <f:view>
-            <h1>#{msg['shop.create.order.form.title']}</h1>
+            <h1>#{msg['shop.create.orderItem.form.title']}</h1>
             <h:form>
                 <h:panelGrid columns="2">
-                    <p:outputLabel for="consumer" value="#{msg['shop.create.order.form.orderCard']}"/>
-                    <p:inputText id="consumer" value="#{orderBean.order.orderCard}" />
-                    <p:outputLabel for="orders" value="#{msg['shop.create.order.form.product']}"/>
-                    <p:inputText id="orders" value="#{orderBean.order.product}" />
-                    <p:outputLabel for="time" value="#{msg['shop.create.order.form.amount']}"/>
-                    <p:inputText id="time" value="#{orderBean.order.amount}" />
-                    <p:outputLabel for="supplier" value="#{msg['shop.create.order.form.orderUnit']}"/>
-                    <p:inputText id="supplier" value="#{orderBean.order.orderUnit}" />
-                    <label>Select order Unit or create new</label>
+                    <p:outputLabel for="consumer" value="#{msg['shop.create.orderItem.form.orderCard']}"/>
+                    <p:inputText id="consumer" value="#{orderBean.orderItem.orderCard}" />
+                    <p:outputLabel for="orderItems" value="#{msg['shop.create.orderItem.form.product']}"/>
+                    <p:inputText id="orderItems" value="#{orderBean.orderItem.product}" />
+                    <p:outputLabel for="time" value="#{msg['shop.create.orderItem.form.amount']}"/>
+                    <p:inputText id="time" value="#{orderBean.orderItem.amount}" />
+                    <p:outputLabel for="supplier" value="#{msg['shop.create.orderItem.form.orderUnit']}"/>
+                    <p:inputText id="supplier" value="#{orderBean.orderItem.orderUnit}" />
+                    <label>Select orderItem Unit or create new</label>
                 </h:panelGrid>
-                <p:commandButton value="#{msg['shop.create.order.form.create']}" action="#{orderBean.create}"/>
+                <p:commandButton value="#{msg['shop.create.orderItem.form.create']}" action="#{orderBean.create}"/>
             </h:form>
         </f:view>
     </ui:define>
