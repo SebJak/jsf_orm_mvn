@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templateApp.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+<h:form id="form"> 
+<p:growl id="growl" showDetail="true"/> 
+
+ <p:dataTable id="table"  value="#{productBean.list}"  var="product" widgetVar="productTable" 
+ emptyMessage="No categories found with given criteria" footerText="contains" filterMatchMode="contains" editMode="cell" editable="true">
+
+	 <p:ajax event="cellEdit" listener="#{productBean.onCellEdit}" update=":form:growl" />
+
+    <p:column headerText="Id">
+        <h:outputText value="#{product.id}" />
+    </p:column>
+    
+	<p:column headerText="Code">
+ 	     <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{product.code}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{product.code}" style="width:96%" label="Code" required="true"/></f:facet>
+		</p:cellEditor>        
+    </p:column>
+
+ 	<p:column headerText="Name">
+ 	     <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{product.name}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{product.name}" style="width:96%" label="Name" required="true"/></f:facet>
+		</p:cellEditor>        
+    </p:column>
+
+    <p:column headerText="Expiraton Date">
+        <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{product.expirationDate}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{product.expirationDate}" style="width:96%" label="Expiraton Date"/></f:facet>
+		</p:cellEditor>      
+    </p:column>
+    
+    <p:column headerText="Price">
+        <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{product.price}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{product.price}" style="width:96%" label="Price" required="true">
+             	<f:convertNumber type="number" />
+             </p:inputText>
+             </f:facet>
+		</p:cellEditor>      
+    </p:column>
+    
+      <p:column headerText="Delete">
+        <p:commandLink id="delete" value="Delete" action="#{productBean.deleteAction(product)}" update=":form" oncomplete="table.filter();"/>
+    </p:column>
+</p:dataTable>
+
+</h:form>
+</ui:define>
+</ui:composition>
