@@ -17,7 +17,7 @@ public class UserService {
 
     public boolean createUser(User user){
         //TODO add validations
-        Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtils.getSessionFactory().openSession();
         session.save(user);
         session.close();
         return true;
@@ -25,7 +25,7 @@ public class UserService {
 
     public boolean deleteUser(User user){
         //TODO add validations
-        Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtils.getSessionFactory().openSession();
         session.delete(user);
         session.close();
         return true;
@@ -33,7 +33,7 @@ public class UserService {
 
     public boolean updateUser(User user){
         //TODO add validations
-        Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtils.getSessionFactory().openSession();
         session.update(user);
         session.close();
         return true;
@@ -51,7 +51,7 @@ public class UserService {
 
     public User login(String login, String password){
 
-        Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtils.getSessionFactory().openSession();
         Query queryUserByLogin = session.getNamedQuery("User.findByLogin");
         queryUserByLogin.setParameter("login", login);
         List<User> users = queryUserByLogin.list();
