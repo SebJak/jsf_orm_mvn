@@ -28,4 +28,6 @@ public class MainBean {
     public String showOrg() { return  "showOrg"; }
     
     public String showUser() { return  "showUser"; }
+    
+    public String showProduct() { return  "showProduct"; }
 }
