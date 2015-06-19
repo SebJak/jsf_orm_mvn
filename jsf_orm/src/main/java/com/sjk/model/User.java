@@ -4,6 +4,7 @@ import com.sjk.model.embedded.Address;
 import com.sjk.model.embedded.BaseEntity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,21 +22,18 @@ public class User extends BaseEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = -3518942414865678952L;
 	
-	private String login;
-	
+	private String login;	
 	private String password;
-	
 	private String name;
-	
 	private String lastName;
-	
 	private String phoneNumber;
-	
 	private String accountNumber;
-	
-	private Address address;
-
+    private String street;
+	private String postCode;
+	private String city;
+	private String country;
 	private String email;
+	//private Address address;
 
 	@ManyToOne(targetEntity=Organization.class)
 	private Organization organization;
@@ -103,13 +101,13 @@ public class User extends BaseEntity implements Serializable{
 		this.password = password;
 	}
 
-	public Address getAddress() {
+	/*public Address getAddress() {
 		return address;
 	}
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}
+	}*/
 
 	public Organization getOrganization() {
 		return organization;
@@ -132,12 +130,12 @@ public class User extends BaseEntity implements Serializable{
 		return "User [login=" + login + ", password=" + password + ", name="
 				+ name + ", lastName=" + lastName + ", phoneNumber="
 				+ phoneNumber + ", accountNumber=" + accountNumber
-				+ ", address=" + address + ", organization=" + organization
+				+ ", address=" + street + ", " + city + " " + postCode + ", " + country + ",organization=" + organization
 				+ ", role=" + role + "]";
 	}
 
 	public User(String login, String password, String name, String lastName,
-			String phoneNumber, String accountNumber, Address address,
+			String phoneNumber, String accountNumber, String street, String postCode, String city, String country,
 			Organization organization, Role role) {
 		super();
 		this.login = login;
@@ -146,14 +144,18 @@ public class User extends BaseEntity implements Serializable{
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.accountNumber = accountNumber;
-		this.address = address;
+		this.street = street;
+		this.postCode = postCode;
+		this.city = city;
+		this.country = country;
+		//this.address = address;
 		this.organization = organization;
 		this.role = role;
 	}
 
 	public User() {
 		super();
-		address = new Address();
+		//address = new Address();
 		organization = new Organization();
 	}
 
@@ -180,6 +182,38 @@ public class User extends BaseEntity implements Serializable{
 		} else if (!login.equals(other.login))
 			return false;
 		return true;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getPostCode() {
+		return postCode;
+	}
+
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
 	

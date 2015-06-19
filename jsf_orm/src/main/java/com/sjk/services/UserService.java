@@ -3,8 +3,10 @@ package com.sjk.services;
 import com.sjk.model.Organization;
 import com.sjk.model.User;
 import com.sjk.utils.HibernateUtils;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.Collection;
 import java.util.List;
@@ -24,18 +26,18 @@ public class UserService {
     }
 
     public boolean deleteUser(User user){
-        //TODO add validations
-        Session session = HibernateUtils.getSessionFactory().openSession();
-        session.delete(user);
-        session.close();
-        return true;
+    	 Session session=HibernateUtils.getSessionFactory().getCurrentSession();
+         Transaction trans=session.beginTransaction();
+    	 session.delete(user);
+    	 trans.commit();
+         return true;
     }
 
     public boolean updateUser(User user){
-        //TODO add validations
-        Session session = HibernateUtils.getSessionFactory().openSession();
-        session.update(user);
-        session.close();
+    	Session session=HibernateUtils.getSessionFactory().getCurrentSession();
+        Transaction trans=session.beginTransaction();
+  	    session.update(user);
+  	    trans.commit();
         return true;
     }
 
@@ -61,5 +63,13 @@ public class UserService {
                 return user;
         }
         return null;
+    }
+    
+    public List<User> getAllUsers(){
+    	Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+    	Transaction trans=session.beginTransaction();
+    	List<User> list = session.createCriteria(User.class).list();
+    	trans.commit();
+        return list;
     }
 }
