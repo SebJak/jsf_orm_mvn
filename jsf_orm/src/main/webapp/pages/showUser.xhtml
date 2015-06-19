@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templateApp.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+<h:form id="form"> 
+<p:growl id="growl" showDetail="true"/> 
+
+ <p:dataTable id="table"  value="#{userBean.list}"  var="user" widgetVar="userTable" 
+ emptyMessage="No categories found with given criteria" footerText="contains" filterMatchMode="contains" editMode="cell" editable="true">
+
+	 <p:ajax event="cellEdit" listener="#{userBean.onCellEdit}" update=":form:growl" />
+
+    <p:column headerText="Id">
+        <h:outputText value="#{user.id}" />
+    </p:column>
+    
+    <p:column headerText="Login">
+ 	     <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.login}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{user.login}" style="width:96%" label="Login" required="true"/></f:facet>
+		</p:cellEditor>        
+    </p:column>
+
+ 	<p:column headerText="First Name">
+ 	     <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.name}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{user.name}" style="width:96%" label="First Name" required="true"/></f:facet>
+		</p:cellEditor>        
+    </p:column>
+    
+    <p:column headerText="Last Name">
+ 	     <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.lastName}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{user.lastName}" style="width:96%" label="Last Name" required="true"/></f:facet>
+		</p:cellEditor>        
+    </p:column>
+
+    <p:column headerText="Street">
+        <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.street}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{user.street}" style="width:96%" label="Street" required="true"/></f:facet>
+		</p:cellEditor>      
+    </p:column>
+    
+    <p:column headerText="City">
+         <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.city}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{user.city}" style="width:96%" label="City" required="true"/></f:facet>
+		</p:cellEditor>   
+    </p:column>
+    
+    <p:column headerText="Post Code">
+    	<p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.postCode}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{user.postCode}" style="width:96%" label="Post Code" validatorMessage="Invalid postcode format" required="true">
+            	<f:validateRegex pattern="^[0-9]{2}-[0-9]{3}"/>
+           	</p:inputText>
+            </f:facet>
+		</p:cellEditor>   
+    </p:column>
+        
+    <p:column headerText="Country">
+        <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.country}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#user.country}" style="width:96%" label="Country" required="true"/></f:facet>
+		</p:cellEditor>  
+    </p:column>
+   
+    <p:column headerText="E-mail">
+        <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.email}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{user.email}" style="width:96%" label="E-mail" validatorMessage="Invalid e-mail format" required="true">
+              <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+            </p:inputText>
+            </f:facet>
+		</p:cellEditor>  
+    </p:column>
+
+    <p:column headerText="Phone">
+        <p:cellEditor>        
+        	<f:facet name="output"><h:outputText value="#{user.phoneNumber}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{user.phoneNumber}" style="width:96%" label="Phone" required="true"/></f:facet>
+		</p:cellEditor>  
+    </p:column>
+
+    <p:column headerText="Delete">
+        <p:commandLink id="delete" value="Delete" action="#{userBean.deleteAction(user)}" update=":form" oncomplete="table.filter();"/>
+    </p:column>
+</p:dataTable>
+
+</h:form>
+</ui:define>
+</ui:composition>
