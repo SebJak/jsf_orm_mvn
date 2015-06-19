@@ -3,9 +3,9 @@ package com.sjk.bean;
 import com.sjk.model.User;
 import com.sjk.services.UserService;
 import com.sjk.utils.PasswordUtils;
+import org.primefaces.context.RequestContext;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
 
@@ -57,6 +57,10 @@ public class CreateUser implements Serializable {
             System.out.println("Pass No validated");
         }
 
+    }
+
+    public void chooseOrganization() {
+        RequestContext.getCurrentInstance().openDialog();
     }
 
     public boolean validateLogin(){
