@@ -14,24 +14,34 @@
                 <h:panelGrid columns="2">
                     <p:outputLabel for="name" value="#{msg['shop.create.org.form.name']}"/>
                     <p:inputText id="name" value="#{createOrganizationBean.org.name}" />
+                    
                     <p:outputLabel for="context" value="#{msg['shop.create.org.form.context']}" />
                     <p:selectOneMenu id="context" value="#{createOrganizationBean.org.context}" style="width:202px">
                         <f:selectItems value="#{createOrganizationBean.contexts}" />
                     </p:selectOneMenu>
 
                     <p:outputLabel for="enterPhone" value="#{msg['shop.create.org.form.phone']}"/>
-                    <p:inputText id="enterPhone" value="#{createOrganizationBean.org.phone}" />
+                    <p:inputText id="enterPhone" value="#{createOrganizationBean.org.phone}" required="true"/>
+                    
                     <p:outputLabel for="enterEmail" value="#{msg['shop.create.org.form.email']}"/>
-                    <p:inputText id="enterEmail" value="#{createOrganizationBean.org.email}" />
+                    <p:inputText id="enterEmail" value="#{createOrganizationBean.org.email}" required="true" validatorMessage="Invalid email format">
+                    <f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+					</p:inputText>
 
                     <p:outputLabel for="enterCountry" value="#{msg['shop.create.org.form.country']}"/>
-                    <p:inputText id="enterCountry" value="#{createOrganizationBean.org.address.country}" />
+                    <p:inputText id="enterCountry" value="#{createOrganizationBean.org.address.country}" required="true"/>
+                    
                     <p:outputLabel for="enterStreet" value="#{msg['shop.create.org.form.street']}"/>
-                    <p:inputText id="enterStreet" value="#{createOrganizationBean.org.address.street}" />
+                    <p:inputText id="enterStreet" value="#{createOrganizationBean.org.address.street}" required="true"/>
+                    
                     <p:outputLabel for="enterPostalCode" value="#{msg['shop.create.org.form.postcode']}"/>
-                    <p:inputText id="enterPostalCode" value="#{createOrganizationBean.org.address.postCode}" />
+                    <p:inputText id="enterPostalCode" value="#{createOrganizationBean.org.address.postCode}" required="true" validatorMessage="Invalid postcode format">
+                    	<f:validateRegex pattern="^[0-9]{2}-[0-9]{3}"/>
+                    </p:inputText>
+                    
                     <p:outputLabel for="enterCity" value="#{msg['shop.create.org.form.city']}"/>
-                    <p:inputText id="enterCity" value="#{createOrganizationBean.org.address.city}" />
+                    <p:inputText id="enterCity" value="#{createOrganizationBean.org.address.city}" required="true"/>
                 </h:panelGrid>
                 <p:commandButton value="#{msg['shop.create.org.form.create']}" action="#{createOrganizationBean.create}" update="growl"/>
             </h:form>

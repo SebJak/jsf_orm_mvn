@@ -60,7 +60,7 @@ public class CreateUser implements Serializable {
     }
 
     public void chooseOrganization() {
-        RequestContext.getCurrentInstance().openDialog();
+        //RequestContext.getCurrentInstance().openDialog();
     }
 
     public boolean validateLogin(){

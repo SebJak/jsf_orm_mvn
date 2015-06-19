@@ -66,8 +66,7 @@ public class Address implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Address [street=" + street + ", postCode=" + postCode
-				+ ", city=" + city + ", country=" + country + "]";
+		return street + ", " + postCode + " " + city + ", " + country;
 	}
 	
 	
