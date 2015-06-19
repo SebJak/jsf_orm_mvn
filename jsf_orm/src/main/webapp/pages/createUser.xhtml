@@ -27,13 +27,13 @@
                 <p:inputText id="enterEmail" value="#{createUser.newUser.email}" />
 
                 <p:outputLabel for="enterCountry" value="#{msg['shop.create.user.form.country']}"/>
-                <p:inputText id="enterCountry" value="#{createUser.newUser.address.country}" />
+                <p:inputText id="enterCountry" value="#{createUser.newUser.country}" />
                 <p:outputLabel for="enterStreet" value="#{msg['shop.create.user.form.street']}"/>
-                <p:inputText id="enterStreet" value="#{createUser.newUser.address.street}" />
+                <p:inputText id="enterStreet" value="#{createUser.newUser.street}" />
                 <p:outputLabel for="enterPostalCode" value="#{msg['shop.create.user.form.postCode']}"/>
-                <p:inputText id="enterPostalCode" value="#{createUser.newUser.address.postCode}" />
+                <p:inputText id="enterPostalCode" value="#{createUser.newUser.postCode}" />
                 <p:outputLabel for="enterCity" value="#{msg['shop.create.user.form.city']}"/>
-                <p:inputText id="enterCity" value="#{createUser.newUser.address.city}" />
+                <p:inputText id="enterCity" value="#{createUser.newUser.city}" />
             </h:panelGrid>
             <p:commandButton value="#{msg['shop.create.user.form.create']}" action="#{createUser.create}"/>
         </h:form>

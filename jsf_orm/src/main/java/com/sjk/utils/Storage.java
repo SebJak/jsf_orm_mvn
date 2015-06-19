@@ -16,7 +16,7 @@ public class Storage <T extends BaseEntity> {
     private Session session;
 
     public void beginTransaction(){
-        session = Storage.getSessionFactory().getCurrentSession();
+        session = Storage.getSessionFactory().openSession();
         session.beginTransaction();
     }
 

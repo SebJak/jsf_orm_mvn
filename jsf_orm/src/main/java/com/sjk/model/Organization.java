@@ -21,12 +21,12 @@ public class Organization extends BaseEntity implements Serializable {
 	private List<User> users;
 	
 	private String name;
-	
 	private String email;
-	
 	private String phone;
-		
-	private Address address;
+    private String street;
+	private String postCode;
+	private String city;
+	private String country;
 
 	@Enumerated(value = EnumType.STRING)
 	private OrganizationContext context;
@@ -71,28 +71,32 @@ public class Organization extends BaseEntity implements Serializable {
 		this.phone = phone;
 	}
 
-	public Address getAddress() {
+	/*public Address getAddress() {
 		return address;
 	}
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}
+	}*/
 
 	public Organization() {
 		super();
-		address = new Address();
+		//address = new Address();
 
 	}
 
 	public Organization(List<User> users, String name, String email,
-			String phone, Address address) {
+			String phone, String street, String postCode, String city, String country) {
 		super();
 		this.users = users;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
-		this.address = address;
+		this.street = street;
+		this.postCode = postCode;
+		this.city = city;
+		this.country = country;
+		//this.address = address;
 	}
 
 	@Override
@@ -123,6 +127,38 @@ public class Organization extends BaseEntity implements Serializable {
 	@Override
 	public String toString() {
 		return "Organization [users=" + users + ", name=" + name + ", email="
-				+ email + ", phone=" + phone + ", address=" + address + "]";
+				+ email + ", phone=" + phone + ", address=" + street + ", " + city + " " + postCode + ", " + country +"]";
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getPostCode() {
+		return postCode;
+	}
+
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	} 
 }
