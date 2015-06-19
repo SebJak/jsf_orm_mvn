@@ -24,4 +24,6 @@ public class MainBean {
     public String createOrder() { return "createOrder"; }
 
     public String createOrderCard(){ return "createOrderCard"; }
+    
+    public String showOrg() { return  "showOrg"; }
 }

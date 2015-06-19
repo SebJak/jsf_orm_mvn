@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.Session;
+
 @Entity
 @Table(name="ORGANIZATION")
 public class Organization extends BaseEntity implements Serializable {
@@ -23,7 +25,7 @@ public class Organization extends BaseEntity implements Serializable {
 	private String email;
 	
 	private String phone;
-	
+		
 	private Address address;
 
 	@Enumerated(value = EnumType.STRING)
@@ -123,5 +125,4 @@ public class Organization extends BaseEntity implements Serializable {
 		return "Organization [users=" + users + ", name=" + name + ", email="
 				+ email + ", phone=" + phone + ", address=" + address + "]";
 	} 
-
 }

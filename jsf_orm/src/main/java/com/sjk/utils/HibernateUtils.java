@@ -67,8 +67,7 @@ public class HibernateUtils {
 			configuration.setProperty("show_sql",
 					properties.getProperty("show_sql"));
             configuration.setProperty("connection.pool_size", "1");
-            configuration
-                    .setProperty("current_session_context_class", "thread");
+            configuration.setProperty("hibernate.current_session_context_class", "thread");
 
 //-------------------------Mapping Class---------------------------------
             configuration.addAnnotatedClass(User.class);
