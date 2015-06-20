@@ -13,7 +13,7 @@
                 <p:growl id="growl" showDetail="true" sticky="true" />
                 <h:panelGrid columns="2">
                     <p:outputLabel for="name" value="#{msg['shop.create.org.form.name']}"/>
-                    <p:inputText id="name" value="#{createOrganizationBean.org.name}" />
+                    <p:inputText id="name" value="#{createOrganizationBean.org.name}" required="true"/>
                     
                     <p:outputLabel for="context" value="#{msg['shop.create.org.form.context']}" />
                     <p:selectOneMenu id="context" value="#{createOrganizationBean.org.context}" style="width:202px">
@@ -30,18 +30,18 @@
 					</p:inputText>
 
                     <p:outputLabel for="enterCountry" value="#{msg['shop.create.org.form.country']}"/>
-                    <p:inputText id="enterCountry" value="#{createOrganizationBean.org.country}" required="true"/>
+                    <p:inputText id="enterCountry" value="#{createOrganizationBean.org.address.country}" required="true"/>
                     
                     <p:outputLabel for="enterStreet" value="#{msg['shop.create.org.form.street']}"/>
-                    <p:inputText id="enterStreet" value="#{createOrganizationBean.org.street}" required="true"/>
+                    <p:inputText id="enterStreet" value="#{createOrganizationBean.org.address.street}" required="true"/>
                     
                     <p:outputLabel for="enterPostalCode" value="#{msg['shop.create.org.form.postcode']}"/>
-                    <p:inputText id="enterPostalCode" value="#{createOrganizationBean.org.postCode}" required="true" validatorMessage="Invalid postcode format">
+                    <p:inputText id="enterPostalCode" value="#{createOrganizationBean.org.address.postCode}" required="true" validatorMessage="Invalid postcode format">
                     	<f:validateRegex pattern="^[0-9]{2}-[0-9]{3}"/>
                     </p:inputText>
                     
                     <p:outputLabel for="enterCity" value="#{msg['shop.create.org.form.city']}"/>
-                    <p:inputText id="enterCity" value="#{createOrganizationBean.org.city}" required="true"/>
+                    <p:inputText id="enterCity" value="#{createOrganizationBean.org.address.city}" required="true"/>
                 </h:panelGrid>
                 <p:commandButton value="#{msg['shop.create.org.form.create']}" action="#{createOrganizationBean.create}" update="growl"/>
             </h:form>

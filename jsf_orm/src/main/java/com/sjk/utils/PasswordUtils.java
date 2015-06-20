@@ -56,4 +56,12 @@ public class PasswordUtils {
 
         return password.equals(confPassword);
     }
+
+    @Override
+    public String toString() {
+        return "Password{" +
+                "password='" + password + '\'' +
+                ", Confirm password='" + confPassword + '\'' +
+                '}';
+    }
 }

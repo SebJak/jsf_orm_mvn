@@ -1,11 +1,9 @@
 package com.sjk.model;
 
-import com.sjk.model.embedded.Address;
 import com.sjk.model.embedded.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="USER")
@@ -36,6 +34,7 @@ public class User extends BaseEntity implements Serializable{
 	//private Address address;
 
 	@ManyToOne(targetEntity=Organization.class)
+	@JoinColumn(name = "organizationId")
 	private Organization organization;
 	
 	@Enumerated(EnumType.STRING)

@@ -38,7 +38,8 @@ public class OrganizationService {
     }
 
     public List<Organization> getAllOrganizations(){
-    	Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+
+        Session session = HibernateUtils.getSessionFactory().getCurrentSession();
     	Transaction trans=session.beginTransaction();
     	List<Organization> list = session.createCriteria(Organization.class).list();
     	trans.commit();

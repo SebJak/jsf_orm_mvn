@@ -54,14 +54,17 @@ public class UserService {
     public User login(String login, String password){
 
         Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction tr = session.beginTransaction();
         Query queryUserByLogin = session.getNamedQuery("User.findByLogin");
         queryUserByLogin.setParameter("login", login);
         List<User> users = queryUserByLogin.list();
         if(users!=null && users.size()>0){
             User user = users.get(0);
             if(user.getPassword().equals(password))
+                tr.commit();
                 return user;
         }
+        tr.commit();
         return null;
     }
     

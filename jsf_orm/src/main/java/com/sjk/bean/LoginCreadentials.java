@@ -53,7 +53,7 @@ public class LoginCreadentials  implements Serializable{
             return "main";
         }
         FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Wrong credentials", ""));
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Wrong credentials", ""));
         return null;
     }
 }

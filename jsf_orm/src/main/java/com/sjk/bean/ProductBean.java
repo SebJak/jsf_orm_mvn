@@ -1,20 +1,14 @@
 package com.sjk.bean;
 
-import java.util.List;
-
-import com.sjk.model.Organization;
 import com.sjk.model.Product;
-import com.sjk.model.User;
-import com.sjk.services.OrganizationService;
 import com.sjk.services.ProductService;
-import com.sjk.services.UserService;
+import org.primefaces.event.CellEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
-import org.primefaces.event.CellEditEvent;
+import java.util.List;
 
 /**
  * Created by Sebastian on 2015-06-16.

@@ -2,6 +2,9 @@ package com.sjk.model.embedded;
 
 import java.io.Serializable;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -57,8 +60,4 @@ public class BaseEntity implements Serializable {
 	public String toString() {
 		return "BaseEntity [id=" + id + "]";
 	}
-	
-	
-	
-
 }

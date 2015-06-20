@@ -29,8 +29,9 @@
         </repository>
         <repository>
             <id>prime-repo</id>
-            <name>Prime Repo</name>
+            <name>PrimeFaces Maven Repository</name>
             <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
         </repository>
     </repositories>
 
@@ -54,7 +55,13 @@
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>3.5</version>
+            <version>5.2</version>
+        </dependency>
+        <!-- Primefaces Themes -->
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>1.0.9</version>
         </dependency>
 
         <!-- JSF 2 -->

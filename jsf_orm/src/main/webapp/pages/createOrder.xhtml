@@ -18,8 +18,7 @@
                     <p:outputLabel for="time" value="#{msg['shop.create.orderItem.form.amount']}"/>
                     <p:inputText id="time" value="#{orderBean.orderItem.amount}" />
                     <p:outputLabel for="supplier" value="#{msg['shop.create.orderItem.form.orderUnit']}"/>
-                    <p:inputText id="supplier" value="#{orderBean.orderItem.orderUnit}" />
-                    <label>Select orderItem Unit or create new</label>
+                    <p:inputText id="supplier" value="#{orderBean.orderItem.orderUnit}"/>
                 </h:panelGrid>
                 <p:commandButton value="#{msg['shop.create.orderItem.form.create']}" action="#{orderBean.create}"/>
             </h:form>

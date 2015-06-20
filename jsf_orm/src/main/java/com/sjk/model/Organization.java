@@ -7,12 +7,21 @@ import com.sjk.model.embedded.OrganizationContext;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.*;
 import javax.persistence.*;
 
 import org.hibernate.Session;
 
 @Entity
 @Table(name="ORGANIZATION")
+@NamedQueries({
+		@NamedQuery(
+				name = "Organization.findById",
+				query = "from Organization o WHERE o.id = :id"
+		)
+})
 public class Organization extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 6081361582451136304L;
@@ -23,10 +32,7 @@ public class Organization extends BaseEntity implements Serializable {
 	private String name;
 	private String email;
 	private String phone;
-    private String street;
-	private String postCode;
-	private String city;
-	private String country;
+	private Address address;
 
 	@Enumerated(value = EnumType.STRING)
 	private OrganizationContext context;
@@ -71,32 +77,28 @@ public class Organization extends BaseEntity implements Serializable {
 		this.phone = phone;
 	}
 
-	/*public Address getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}*/
+	}
 
 	public Organization() {
 		super();
-		//address = new Address();
+		address = new Address();
 
 	}
 
 	public Organization(List<User> users, String name, String email,
-			String phone, String street, String postCode, String city, String country) {
+			String phone, Address address) {
 		super();
 		this.users = users;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
-		this.street = street;
-		this.postCode = postCode;
-		this.city = city;
-		this.country = country;
-		//this.address = address;
+		this.address = address;
 	}
 
 	@Override
@@ -109,6 +111,8 @@ public class Organization extends BaseEntity implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
+		if(!super.equals(obj))
+			return false;
 		if (this == obj)
 			return true;
 		if (!super.equals(obj))
@@ -126,39 +130,40 @@ public class Organization extends BaseEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Organization [users=" + users + ", name=" + name + ", email="
-				+ email + ", phone=" + phone + ", address=" + street + ", " + city + " " + postCode + ", " + country +"]";
+		return super.toString()+ "Organization [name=" + name + ", email="
+				+ email + ", phone=" + phone + ", address=" +address +"]";
 	}
 
-	public String getStreet() {
-		return street;
-	}
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getPostCode() {
-		return postCode;
-	}
-
-	public void setPostCode(String postCode) {
-		this.postCode = postCode;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	} 
+//	public String getStreet() {
+//		return street;
+//	}
+//
+//	public void setStreet(String street) {
+//		this.street = street;
+//	}
+//
+//	public String getPostCode() {
+//		return postCode;
+//	}
+//
+//	public void setPostCode(String postCode) {
+//		this.postCode = postCode;
+//	}
+//
+//	public String getCity() {
+//		return city;
+//	}
+//
+//	public void setCity(String city) {
+//		this.city = city;
+//	}
+//
+//	public String getCountry() {
+//		return country;
+//	}
+//
+//	public void setCountry(String country) {
+//		this.country = country;
+//	}
 }
