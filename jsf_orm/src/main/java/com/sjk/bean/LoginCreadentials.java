@@ -44,10 +44,7 @@ public class LoginCreadentials  implements Serializable{
     }
 
     public String login(){
-        // TODO
-        /*
-        Add check that user has privileges to login.
-         */
+
         User user = userService.login(username,password);
         if(user!=null){
             return "main";

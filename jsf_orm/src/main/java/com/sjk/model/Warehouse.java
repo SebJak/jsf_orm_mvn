@@ -2,11 +2,9 @@ package com.sjk.model;
 
 import com.sjk.model.embedded.BaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Sebastian on 2015-06-16.
@@ -18,11 +16,16 @@ public class Warehouse extends BaseEntity implements Serializable {
     @OneToOne(targetEntity = Organization.class)
     private Organization organization;
 
-    @OneToOne(targetEntity = Product.class)
-    private Product products;
+    @OneToMany(cascade=CascadeType.ALL, targetEntity = Product.class)
+    @JoinTable(name="WAREHOUSE_PRODUCT",
+            joinColumns={@JoinColumn(name="warehouseId", referencedColumnName="id")},
+            inverseJoinColumns={@JoinColumn(name="productID", referencedColumnName="id")})
+    private List<Product> products;
 
+    @Column(columnDefinition="Decimal(10,2) default '0.00'")
     private long amount;
 
+    @Column(nullable = false, length = 64)
     private String name;
 
     public String getName() {
@@ -39,14 +42,6 @@ public class Warehouse extends BaseEntity implements Serializable {
 
     public void setOrganization(Organization organization) {
         this.organization = organization;
-    }
-
-    public Product getProducts() {
-        return products;
-    }
-
-    public void setProducts(Product products) {
-        this.products = products;
     }
 
     public long getAmount() {
@@ -69,6 +64,13 @@ public class Warehouse extends BaseEntity implements Serializable {
         if (!products.equals(warehouse.products)) return false;
         return name.equals(warehouse.name);
 
+    }
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     @Override

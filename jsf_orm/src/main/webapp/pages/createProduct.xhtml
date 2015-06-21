@@ -10,20 +10,30 @@
         <f:view>
             <h1>#{msg['shop.create.product.form.title']}</h1>
             <h:form>
+                <p:growl id="growl" showDetail="true" sticky="true" />
                 <h:panelGrid columns="2">
                     <p:outputLabel for="code" value="#{msg['shop.create.product.form.code']}"/>
-                    <p:inputText id="code" value="#{productBean.product.code}" />
+                    <p:inputText id="code" value="#{productBean.product.code}" required="true"/>
                     <p:outputLabel for="name" value="#{msg['shop.create.product.form.name']}"/>
-                    <p:inputText id="name" value="#{productBean.product.name}" />
+                    <p:inputText id="name" value="#{productBean.product.name}" required="true"/>
                     <p:outputLabel for="expirationDate" value="#{msg['shop.create.product.form.dateExp']}"/>
-                    <p:inputText id="expirationDate" value="#{productBean.product.expirationDate}" />
-                    <label>Select ogranizations</label>
+                    <p:calendar id="expirationDate" value="#{productBean.product.expirationDate}" required="true"/>
                     <p:outputLabel for="supplier" value="#{msg['shop.create.product.form.supplier']}"/>
-                    <p:inputText id="supplier" value="#{productBean.product.supplier}" />
+                    <p:selectOneMenu id="supplier" value="#{productBean.product.supplier}"
+                                     style="width:202px" required="true">
+                        <f:selectItems value="#{productBean.suppliers}"
+                                       var="organization" itemLabel="#{organization.name}"
+                                       itemValue="#{organization}"/>
+                    </p:selectOneMenu>
+
                     <p:outputLabel for="price" value="#{msg['shop.create.product.form.price']}"/>
-                    <p:inputText id="price" value="#{productBean.product.price}" />
+                    <p:inputText id="price" value="#{productBean.product.price}" required="true"/>
+                    <p:outputLabel for="description" value="#{msg['shop.create.product.form.description']}"/>
+                    <p:inputTextarea id="description" rows="6" cols="25" value="#{productBean.product.description}">
+                            <f:validateLength maximum="64"/>
+                    </p:inputTextarea>
                 </h:panelGrid>
-                <p:commandButton value="#{msg['shop.create.product.form.create']}" action="#{productBean.create}"/>
+                <p:commandButton value="#{msg['shop.create.product.form.create']}" action="#{productBean.create}" update="growl"/>
             </h:form>
         </f:view>
     </ui:define>

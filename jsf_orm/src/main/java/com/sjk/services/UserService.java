@@ -20,24 +20,28 @@ public class UserService {
     public boolean createUser(User user){
         //TODO add validations
         Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction tr = session.beginTransaction();
         session.save(user);
+        tr.commit();
         session.close();
         return true;
     }
 
     public boolean deleteUser(User user){
-    	 Session session=HibernateUtils.getSessionFactory().getCurrentSession();
+    	 Session session=HibernateUtils.getSessionFactory().openSession();
          Transaction trans=session.beginTransaction();
     	 session.delete(user);
     	 trans.commit();
+         session.close();
          return true;
     }
 
     public boolean updateUser(User user){
-    	Session session=HibernateUtils.getSessionFactory().getCurrentSession();
+    	Session session=HibernateUtils.getSessionFactory().openSession();
         Transaction trans=session.beginTransaction();
   	    session.update(user);
   	    trans.commit();
+        session.close();
         return true;
     }
 
@@ -60,19 +64,23 @@ public class UserService {
         List<User> users = queryUserByLogin.list();
         if(users!=null && users.size()>0){
             User user = users.get(0);
-            if(user.getPassword().equals(password))
+            if(user.getPassword().equals(password)) {
                 tr.commit();
+                session.close();
                 return user;
+            }
         }
         tr.commit();
+        session.close();
         return null;
     }
     
     public List<User> getAllUsers(){
-    	Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+    	Session session = HibernateUtils.getSessionFactory().openSession();
     	Transaction trans=session.beginTransaction();
     	List<User> list = session.createCriteria(User.class).list();
     	trans.commit();
+        session.close();
         return list;
     }
 }

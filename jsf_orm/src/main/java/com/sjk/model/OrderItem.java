@@ -16,8 +16,10 @@ public class OrderItem extends BaseEntity implements Serializable {
     @JoinColumn(name = "productId")
     private Product product;
 
+    @Column(nullable = false, precision=10, scale=2)
     private double amount;
 
+    @Column(nullable = false)
     private String orderUnit;
 
     @ManyToOne(targetEntity = OrderCard.class)

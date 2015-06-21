@@ -2,9 +2,7 @@ package com.sjk.model;
 
 import com.sjk.model.embedded.BaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,18 +11,35 @@ import java.util.Date;
  */
 @Entity
 @Table(name="PRODUCT")
+@NamedQueries({
+        @NamedQuery(name = "Product.findByCode",
+            query="from Product p where p.code = :code")
+})
 public class Product extends BaseEntity implements Serializable {
 
+    @Column(unique = true, nullable = false)
     private String code;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private Date expirationDate;
 
     @ManyToOne(targetEntity=Organization.class)
     private Organization supplier;
 
+    @Column(precision=10, scale=2)
     private double price;
+
+    @Column(length = 64)
+    private String description;
+
+    @ManyToOne(cascade=CascadeType.ALL, targetEntity = Warehouse.class)
+    @JoinTable(name="WAREHOUSE_PRODUCT",
+            joinColumns={@JoinColumn(name="productId", referencedColumnName="id")},
+            inverseJoinColumns={@JoinColumn(name="warehouseId", referencedColumnName="id")})
+    private Warehouse warehouse;
 
     public String getCode() {
         return code;
@@ -68,6 +83,7 @@ public class Product extends BaseEntity implements Serializable {
 
     @Override
     public boolean equals(Object o) {
+        if( !super.equals(o)) return false;
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
@@ -81,18 +97,25 @@ public class Product extends BaseEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + (code != null ? code.hashCode() : 0);
+        result = 31 * result + code.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + expirationDate.hashCode();
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", expirationDate=" + expirationDate +
-                ", supplier=" + supplier +
-                ", price=" + price +
-                '}';
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
     }
 }

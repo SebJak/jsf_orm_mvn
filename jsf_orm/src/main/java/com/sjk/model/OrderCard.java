@@ -17,6 +17,7 @@ public class OrderCard extends BaseEntity implements Serializable{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderCard")
     private List<OrderItem> orderItems;
 
+    @Column(nullable = false)
     private Date orderTime;
 
     @ManyToOne(targetEntity=Organization.class)

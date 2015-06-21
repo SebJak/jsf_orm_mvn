@@ -1,5 +1,6 @@
 package com.sjk.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import org.primefaces.event.CellEditEvent;
  */
 @ManagedBean
 @SessionScoped
-public class OrgBean {
+public class OrgBean implements Serializable {
 
 	private Organization organization = new Organization();
 	private OrganizationService OrganizationService = new OrganizationService();

@@ -19,17 +19,37 @@ public class User extends BaseEntity implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -3518942414865678952L;
-	
-	private String login;	
+
+	@Column(length = 32, nullable = false)
+	private String login;
+
+	@Column(nullable = false)
 	private String password;
+
+	@Column(nullable = false, length = 32)
 	private String name;
+
+	@Column(nullable = false, length = 32)
 	private String lastName;
+
+	@Column(length = 16)
 	private String phoneNumber;
+	@Column(length = 32)
 	private String accountNumber;
-    private String street;
+
+	@Column(length = 64)
+	private String street;
+
+	@Column(length = 8)
 	private String postCode;
+
+	@Column(length = 32)
 	private String city;
+
+	@Column(length = 32)
 	private String country;
+
+	@Column(length = 64, nullable = false)
 	private String email;
 	//private Address address;
 

@@ -2,13 +2,14 @@ package com.sjk.bean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
 /**
  * Created by Sebastian on 2015-06-16.
  */
 @ManagedBean
 @SessionScoped
-public class MainBean {
+public class MainBean implements Serializable {
 
 
     public String createUser(){

@@ -20,6 +20,10 @@ import org.hibernate.Session;
 		@NamedQuery(
 				name = "Organization.findById",
 				query = "from Organization o WHERE o.id = :id"
+		),
+		@NamedQuery(
+				name = "Organization.findByContext",
+				query = "from Organization o WHERE o.context = :context"
 		)
 })
 public class Organization extends BaseEntity implements Serializable {
@@ -28,10 +32,16 @@ public class Organization extends BaseEntity implements Serializable {
 	
 	@OneToMany(targetEntity=User.class, mappedBy="organization")
 	private List<User> users;
-	
+
+	@Column(length = 64, nullable = false)
 	private String name;
+
+	@Column(length = 64, nullable = false)
 	private String email;
+
+	@Column(length = 16, nullable = false)
 	private String phone;
+
 	private Address address;
 
 	@Enumerated(value = EnumType.STRING)

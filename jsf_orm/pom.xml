@@ -48,7 +48,9 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+    <properties>
 
+    </properties>
     <dependencies>
 
         <!--PrimeFaces-->

@@ -1,5 +1,6 @@
 package com.sjk.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ import org.primefaces.event.CellEditEvent;
  */
 @ManagedBean
 @SessionScoped
-public class UserBean {
+public class UserBean implements Serializable {
 
 	private User user = new User();
 	private UserService UserService = new UserService();
@@ -29,10 +30,6 @@ public class UserBean {
 
 	public User getUser() {
 		return user;
-	}
-
-	public void setOrganization(Organization organization) {
-		this.user = user;
 	}
 
 	public java.util.List<User> getList() {
