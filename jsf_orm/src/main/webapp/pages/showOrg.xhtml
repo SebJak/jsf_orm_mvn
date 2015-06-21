@@ -30,22 +30,22 @@
 
     <p:column headerText="Street">
         <p:cellEditor>        
-        	<f:facet name="output"><h:outputText value="#{organization.street}" /></f:facet>
-            <f:facet name="input"><p:inputText value="#{organization.street}" style="width:96%" label="Street" required="true"/></f:facet>
+        	<f:facet name="output"><h:outputText value="#{organization.address.street}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{organization.address.street}" style="width:96%" label="Street" required="true"/></f:facet>
 		</p:cellEditor>      
     </p:column>
     
     <p:column headerText="City">
          <p:cellEditor>        
-        	<f:facet name="output"><h:outputText value="#{organization.city}" /></f:facet>
-            <f:facet name="input"><p:inputText value="#{organization.city}" style="width:96%" label="City" required="true"/></f:facet>
+        	<f:facet name="output"><h:outputText value="#{organization.address.city}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{organization.address.city}" style="width:96%" label="City" required="true"/></f:facet>
 		</p:cellEditor>   
     </p:column>
     
     <p:column headerText="Post Code">
     	<p:cellEditor>        
-        	<f:facet name="output"><h:outputText value="#{organization.postCode}" /></f:facet>
-            <f:facet name="input"><p:inputText value="#{organization.postCode}" style="width:96%" label="Post Code" validatorMessage="Invalid postcode format" required="true">
+        	<f:facet name="output"><h:outputText value="#{organization.address.postCode}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{organization.address.postCode}" style="width:96%" label="Post Code" validatorMessage="Invalid postcode format" required="true">
             	<f:validateRegex pattern="^[0-9]{2}-[0-9]{3}"/>
            	</p:inputText>
             </f:facet>
@@ -54,8 +54,8 @@
         
     <p:column headerText="Country">
         <p:cellEditor>        
-        	<f:facet name="output"><h:outputText value="#{organization.country}" /></f:facet>
-            <f:facet name="input"><p:inputText value="#{organization.country}" style="width:96%" label="Country" required="true"/></f:facet>
+        	<f:facet name="output"><h:outputText value="#{organization.address.country}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{organization.address.country}" style="width:96%" label="Country" required="true"/></f:facet>
 		</p:cellEditor>  
     </p:column>
 
